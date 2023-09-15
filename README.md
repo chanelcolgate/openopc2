@@ -79,8 +79,11 @@ local Windows setup.
 On the Windows Machine open the console as administrator.
 
 ```shell
-openopcservice install
-openopcservice start
+cd pyiec62850
+pyinstaller --onefile --add-binary "pythoncom38.dll;." --hiddenimport win32timezone gateway_service.py
+cd dist
+gateway_service.exe install
+net start zzzOpenOPCService
 ```
 
 On your Linux machine
